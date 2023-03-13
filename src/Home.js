@@ -49,7 +49,9 @@ export default function Home() {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
-            <GroupsIcon sx={{ mr: 2 }} />
+            <IconButton href="/home" style={{ backgroundColor: 'transparent' }}>
+              <GroupsIcon sx={{ mr: 2 }} />
+            </IconButton>
             <Typography 
               variant="h6" 
               component="div" 
