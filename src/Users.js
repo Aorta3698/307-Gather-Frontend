@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const backend = "http://localhost:5000/";
+const backend = "https://polygather.azurewebsites.net/";
 
 // get all the users and return the data
 // return the response from the backend
