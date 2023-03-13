@@ -71,26 +71,51 @@ export default function Profile() {
             pb: 6,
           }}
         >
-          <Container maxWidth="sm">
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="text.primary"
-              gutterBottom
-            >
-              Gather
-            </Typography>
-            <Typography
-              variant="h5"
-              align="center"
-              color="text.secondary"
-              paragraph
-            >
-              This is the place where you can find events to attend, host new
-              events, and meet new people. All for free, forever!
-            </Typography>
-          </Container>
+        <Container maxWidth="sm">
+          <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+            style={{ minHeight: '10vh' }}
+          >
+            <Grid item>
+              <Box
+                component="img"
+                sx={{
+                  height: 350,
+                  width: 350,
+                  maxHeight: { xs: 350, md: 250 },
+                  maxWidth: { xs: 350, md: 250 },
+                }}
+                alt="User image."
+                src="images/user-image.png"
+              />
+            </Grid>
+            <Grid item>
+              <Typography
+                component="h1"
+                variant="h2"
+                align="center"
+                color="text.primary"
+                gutterBottom
+              >
+                My Profile
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography
+                variant="h5"
+                align="center"
+                color="text.secondary"
+                paragraph
+              >
+                This will be my bio!
+              </Typography>
+            </Grid>
+          </Grid>
+        </Container>
         </Box>
 
       </main>
