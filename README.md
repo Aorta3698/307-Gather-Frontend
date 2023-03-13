@@ -40,7 +40,8 @@ REACT_APP_MAPBOX_ACCESS_TOKEN=<YOUR ACCESS TOKEN>
 
 inside that `.env.local`. Then re-run `npm run start`
 
-<br></br>
+___
+### Test Cases & Test Coverage
 To run all the test cases, enter
 ```
 npm run test
