@@ -4,6 +4,7 @@ import Welcome from "./Welcome";
 import Login from "./Login";
 import Signup from "./Signup";
 import Profile from "./Profile";
+import Favorites from "./Favorites"
 import { checkCredentials } from "./Requests.js";
 import { addAccount } from "./Requests.js";
 
@@ -14,6 +15,7 @@ export default function App() {
       <Route path="/" element={<Welcome />} />
       <Route path="/Home" element={<Home />} />
       <Route path="/Profile" element={<Profile />} />
+      <Route path="/Favorites" element={<Favorites />} />
       <Route path="/users/Login" element={<Login handleSubmit={checkCredentials}/>} />
       <Route path="/users/signup" element={<Signup handleSubmit={addAccount}/>} />
     </Routes>

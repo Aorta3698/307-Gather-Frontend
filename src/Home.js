@@ -61,7 +61,7 @@ export default function Home() {
               Gather
             </Typography>
             <Button color="inherit">My Events</Button>
-            <Button color="inherit">Favorites</Button>
+            <Button href="/favorites" color="inherit">Favorites</Button>
             <Button href="/profile" color="inherit">Profile</Button>
           </Toolbar>
         </AppBar>

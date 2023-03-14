@@ -33,8 +33,6 @@ function Copyright() {
   );
 }
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
 const theme = createTheme({
   palette: {
     mode: "dark",
@@ -59,7 +57,7 @@ export default function Profile() {
               Gather
             </Typography>
             <Button color="inherit">My Events</Button>
-            <Button color="inherit">Favorites</Button>
+            <Button href="/favorites" color="inherit">Favorites</Button>
             <Button href="/profile" color="inherit">Profile</Button>
           </Toolbar>
         </AppBar>
