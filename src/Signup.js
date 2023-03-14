@@ -66,7 +66,7 @@ export default function Signup(props) {
     return (
       <Typography variant="body2" color="text.secondary" align="center" {...props}>
         {'Copyright © '}
-        <Link color="inherit" href="https://mui.com/">
+        <Link color="inherit" href="https://gather-5411b.web.app/">
           Gather
         </Link>{' '}
         {new Date().getFullYear()}
