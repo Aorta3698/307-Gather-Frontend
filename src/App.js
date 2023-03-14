@@ -3,6 +3,7 @@ import Home from "./Home";
 import Welcome from "./Welcome";
 import Login from "./Login";
 import Signup from "./Signup";
+import Forgot from "./Forgot";
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <Route path="/Home" element={<Home />} />
       <Route path="/users/Login" element={<Login />} />
       <Route path="/users/signup" element={<Signup />} />
+      <Route path="/users/forgot" element={<Forgot />} />
     </Routes>
   );
 }
