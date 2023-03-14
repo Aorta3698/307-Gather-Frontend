@@ -1,15 +1,11 @@
 import * as React from "react";
-import CssBaseline from "@mui/material/CssBaseline";
-import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Toolbar from "@mui/material/Toolbar";
 import Paper from "@mui/material/Paper";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
-import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
@@ -18,8 +14,15 @@ import Copyright from "./Copyright";
 import LocationForm from "./LocationForm";
 import Review from "./Review";
 import Header from "./Header";
+import { addEvent } from "./Events";
 
 const steps = ["Event Details", "Event Photos", "Review Event"];
+
+const theme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
 
 function getStepContent(step, func, event) {
   switch (step) {
@@ -34,21 +37,19 @@ function getStepContent(step, func, event) {
   }
 }
 
-const theme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-});
-
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
 
   const [event, setEvent] = React.useState({
     name: "",
-    desc: "",
-    building: "",
-    room: "",
+    description: "",
+    location: "",
     category: "",
+    date: "",
+    // hardcode these for now
+    verified: true,
+    hostId: "63fc355766c988cd3251b0ee",
+    gps: [-122.5, 37.7],
   });
 
   const handleChange = (input) => {
@@ -59,12 +60,61 @@ export default function Checkout() {
     });
   };
 
+  const setDate = () => {
+    setEvent({
+      ...event,
+      date: new Date().toLocaleString(),
+    });
+  };
+
   const handleNext = () => {
+    setDate();
     setActiveStep(activeStep + 1);
+    if (activeStep + 1 == steps.length) {
+      addEvent(event);
+    }
   };
 
   const handleBack = () => {
+    setDate();
     setActiveStep(activeStep - 1);
+  };
+
+  const confirmation = () => {
+    return (
+      <React.Fragment>
+        <Typography variant="h5" gutterBottom>
+          Your Event has been added!
+        </Typography>
+        <Typography variant="subtitle1">
+          We have emailed a confirmation that your event has been added. Thank
+          you for using Gather!
+        </Typography>
+      </React.Fragment>
+    );
+  };
+
+  const showForm = () => {
+    return (
+      <React.Fragment>
+        {getStepContent(activeStep, handleChange, event)}
+        <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+          {activeStep !== 0 && (
+            <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
+              Back
+            </Button>
+          )}
+
+          <Button
+            variant="contained"
+            onClick={handleNext}
+            sx={{ mt: 3, ml: 1 }}
+          >
+            {activeStep === steps.length - 1 ? "Add Event" : "Next"}
+          </Button>
+        </Box>
+      </React.Fragment>
+    );
   };
 
   return (
@@ -86,36 +136,7 @@ export default function Checkout() {
               </Step>
             ))}
           </Stepper>
-          {activeStep === steps.length ? (
-            <React.Fragment>
-              <Typography variant="h5" gutterBottom>
-                Your Event has been added!
-              </Typography>
-              <Typography variant="subtitle1">
-                We have emailed a confirmation that your event has been added.
-                Thank you for using Gather!
-              </Typography>
-            </React.Fragment>
-          ) : (
-            <React.Fragment>
-              {getStepContent(activeStep, handleChange, event)}
-              <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-                {activeStep !== 0 && (
-                  <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
-                    Back
-                  </Button>
-                )}
-
-                <Button
-                  variant="contained"
-                  onClick={handleNext}
-                  sx={{ mt: 3, ml: 1 }}
-                >
-                  {activeStep === steps.length - 1 ? "Add Event" : "Next"}
-                </Button>
-              </Box>
-            </React.Fragment>
-          )}
+          {activeStep === steps.length ? confirmation() : showForm()}
         </Paper>
         <Copyright />
       </Container>

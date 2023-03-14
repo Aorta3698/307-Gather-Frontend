@@ -36,19 +36,9 @@ export default function AddressForm(props) {
         <Grid item xs={12}>
           <TextField
             required
-            id="building"
-            name="building"
-            label="Building Name"
-            fullWidth
-            variant="standard"
-            onChange={props.handleChange}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            id="room"
-            name="room"
-            label="Room Number"
+            id="location"
+            name="location"
+            label="Location"
             fullWidth
             variant="standard"
             onChange={props.handleChange}
@@ -57,8 +47,8 @@ export default function AddressForm(props) {
         <Grid item xs={12}>
           <TextField
             required
-            id="desc"
-            name="desc"
+            id="description"
+            name="description"
             label="Description"
             fullWidth
             variant="standard"
