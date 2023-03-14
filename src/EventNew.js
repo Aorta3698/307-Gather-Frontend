@@ -21,14 +21,14 @@ import Header from "./Header";
 
 const steps = ["Event Details", "Event Photos", "Review Event"];
 
-function getStepContent(step) {
+function getStepContent(step, func) {
   switch (step) {
     case 0:
-      return <LocationForm />;
+      return <LocationForm handleChange={func} />;
     case 1:
-      return <PhotoForm />;
+      return <PhotoForm handleChange={func} />;
     case 2:
-      return <Review />;
+      return <Review handleChange={func} />;
     default:
       throw new Error("Unknown step");
   }
@@ -42,6 +42,23 @@ const theme = createTheme({
 
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
+
+  const [event, setEvent] = React.useState({
+    name: "",
+    desc: "",
+    building: "",
+    room: "",
+    category: "",
+  });
+
+  const handleChange = (input) => {
+    const value = input.target.value;
+    setEvent({
+      ...event,
+      [input.target.name]: value,
+    });
+    console.log(event);
+  };
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -82,7 +99,7 @@ export default function Checkout() {
             </React.Fragment>
           ) : (
             <React.Fragment>
-              {getStepContent(activeStep)}
+              {getStepContent(activeStep, handleChange)}
               <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
                 {activeStep !== 0 && (
                   <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>

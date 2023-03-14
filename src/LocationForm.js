@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 
-export default function AddressForm() {
+export default function AddressForm(props) {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -13,30 +13,33 @@ export default function AddressForm() {
         <Grid item xs={12}>
           <TextField
             required
-            id="eventName"
-            name="eventName"
+            id="name"
+            name="name"
             label="Event Name"
             fullWidth
             variant="standard"
+            onChange={props.handleChange}
           />
         </Grid>
         <Grid item xs={12}>
           <TextField
             required
-            id="buildingName"
-            name="buildingName"
+            id="building"
+            name="building"
             label="Building Name"
             fullWidth
             variant="standard"
+            onChange={props.handleChange}
           />
         </Grid>
         <Grid item xs={12}>
           <TextField
-            id="roomNumber"
-            name="roomNumber"
+            id="room"
+            name="room"
             label="Room Number"
             fullWidth
             variant="standard"
+            onChange={props.handleChange}
           />
         </Grid>
         <Grid item xs={12}>
@@ -47,6 +50,17 @@ export default function AddressForm() {
             label="Description"
             fullWidth
             variant="standard"
+            onChange={props.handleChange}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            id="category"
+            name="category"
+            label="Category"
+            fullWidth
+            variant="standard"
+            onChange={props.handleChange}
           />
         </Grid>
       </Grid>
