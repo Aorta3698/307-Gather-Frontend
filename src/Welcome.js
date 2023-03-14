@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 export default function Welcome() {
   return (
@@ -11,6 +11,9 @@ export default function Welcome() {
           </li>
           <li>
             <Link to="/users/signup">Create Account</Link>
+          </li>
+          <li>
+            <Link to="/users/forgot">Forgot Password</Link>
           </li>
           <li>
             <Link to="/home">Home Page</Link>
