@@ -31,6 +31,7 @@ export default function AddressForm(props) {
             fullWidth
             variant="standard"
             onChange={props.handleChange}
+            defaultValue={props.event.name}
           />
         </Grid>
         <Grid item xs={12}>
@@ -42,6 +43,7 @@ export default function AddressForm(props) {
             fullWidth
             variant="standard"
             onChange={props.handleChange}
+            defaultValue={props.event.location}
           />
         </Grid>
         <Grid item xs={12}>
@@ -53,6 +55,7 @@ export default function AddressForm(props) {
             fullWidth
             variant="standard"
             onChange={props.handleChange}
+            defaultValue={props.event.description}
           />
         </Grid>
         <Grid item xs={12}>
@@ -62,7 +65,7 @@ export default function AddressForm(props) {
               id="category"
               name="category"
               label="Category"
-              defaultValue=""
+              defaultValue={props.event.category}
               onChange={props.handleChange}
             >
               <MenuItem value={categories[0]}>{categories[0]}</MenuItem>

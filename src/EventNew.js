@@ -27,7 +27,7 @@ const theme = createTheme({
 function getStepContent(step, func, event) {
   switch (step) {
     case 0:
-      return <LocationForm handleChange={func} />;
+      return <LocationForm handleChange={func} event={event} />;
     case 1:
       return <PhotoForm handleChange={func} />;
     case 2:
