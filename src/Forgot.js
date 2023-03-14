@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,25 +13,22 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-function Login(props) {
-  const navigate = useNavigate(); 
+function Forgot(props) {
   const [person, setPerson] = useState({
     email: "",
-    password: "",
   });
 
   function handleChange(event) {
     const { name, value } = event.target;
-    if (name === "password")
-      setPerson({ email: person["email"], password: value });
-    else setPerson({ email: value, password: person["password"] });
+    if (name === "email")
+      setPerson({ email: value});
   }
 
   function submitForm() {
     console.log("Submit Form Person: " + person);
-    //props.handleSubmit(person);
-    setPerson({ email: "", password: "" });
-    navigate("/home");
+    props.handleSubmit(person);
+    setPerson({ email: ""});
+    //navigate("/home");
   }
 
   function Copyright(props) {
@@ -66,7 +62,7 @@ function Login(props) {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Forgot Password
         </Typography>
         <Box component="form" onSubmit={handleChange} noValidate sx={{ mt: 1 }}>
           <TextField
@@ -79,7 +75,7 @@ function Login(props) {
             autoComplete="email"
             autoFocus
           />
-          <TextField
+          {/* <TextField
             margin="normal"
             required
             fullWidth
@@ -88,7 +84,7 @@ function Login(props) {
             type="password"
             id="password"
             autoComplete="current-password"
-          />
+          /> */}
           {/* <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
@@ -100,18 +96,18 @@ function Login(props) {
             sx={{ mt: 3, mb: 2 }}
             onClick={submitForm}
           >
-            Sign In
+            Submit
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="/users/forgot" variant="body2">
+              {/* <Link href="/users/forgot" variant="body2">
                 Forgot password?
-              </Link>
+              </Link> */}
             </Grid>
             <Grid item>
-              <Link href="/users/signup" variant="body2">
+              {/* <Link href="/users/signup" variant="body2">
                 {"Don't have an account? Sign Up"}
-              </Link>
+              </Link> */}
             </Grid>
           </Grid>
         </Box>
@@ -121,33 +117,22 @@ function Login(props) {
   </ThemeProvider>
   );
 
-  // return (
-  //   <form>
-  //     <label htmlFor="name">Email</label>
-  //     <input
-  //       type="text"
-  //       name="name"
-  //       id="name"
-  //       value={person.email}
-  //       onChange={handleChange}
-  //     />
-  //     <label htmlFor="password">Password</label>
-  //     <input
-  //       type="password"
-  //       name="password"
-  //       id="password"
-  //       value={person.password}
-  //       onChange={handleChange}
-  //     />
-  //     <input type="button" value="Submit" onClick={submitForm} />
-  //     <li>
-  //       <a href="/users/signup">Create Account</a>
-  //     </li>
-  //     <li>
-  //       <a href="/">Go Back</a>
-  //     </li>
-  //   </form>
-  // );
+//   return (
+//     <form>
+//       <label htmlFor="name">Email</label>
+//       <input
+//         type="text"
+//         name="email"
+//         id="email"
+//         value={person.email}
+//         onChange={handleChange}
+//       />
+//       <input type="button" value="Submit" onClick={submitForm} />
+//       <li>
+//         <a href="/">Go Back</a>
+//       </li>
+//     </form>
+//   );
 }
 
-export default Login;
+export default Forgot;
