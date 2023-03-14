@@ -21,9 +21,14 @@ const theme = createTheme({
   },
 });
 
-function AddEventButton() {
+function NewEventButton() {
+  const newEvent = () => {
+    location.href = "/events/new";
+  };
+
   return (
     <Fab
+      onClick={newEvent}
       color="primary"
       aria-label="add"
       style={{
@@ -58,7 +63,7 @@ export default class Home extends Component {
           <EventCards events={this.state.events} />
         </main>
         <Copyright />
-        <AddEventButton />
+        <NewEventButton />
       </ThemeProvider>
     );
   }

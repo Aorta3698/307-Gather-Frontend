@@ -13,18 +13,18 @@ import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-import PaymentForm from "./PaymentForm";
+import PhotoForm from "./PhotoForm";
 import Copyright from "./Copyright";
-import AddressForm from "./AddressForm";
+import LocationForm from "./LocationForm";
 import Review from "./Review";
 import Header from "./Header";
 
-const steps = ["Shipping address", "Payment details", "Review your order"];
+const steps = ["Event Details", "Event Photos", "Review Event"];
 
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return <AddressForm />;
+      return <LocationForm />;
     case 1:
       return <PhotoForm />;
     case 2:
@@ -34,7 +34,11 @@ function getStepContent(step) {
   }
 }
 
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
 
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -50,6 +54,7 @@ export default function Checkout() {
   return (
     <ThemeProvider theme={theme}>
       <Header />
+
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper
           variant="outlined"
