@@ -13,24 +13,14 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-
-import Map from "./Map";
-
 import React, { Component } from "react";
+
 import { getAllEvents } from "./Events";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://gather-5411b.web.app">
-        Gather
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+import Map from "./Map";
+import Copyright from "./Copyright";
+import Header from "./Header";
+import EventCards from "./EventCards";
 
 const theme = createTheme({
   palette: {
@@ -51,16 +41,7 @@ export default class Home extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <AppBar position="relative">
-          {/* Header */}
-          <Toolbar>
-            <GroupsIcon sx={{ mr: 2 }} />
-            <Typography variant="h6" color="inherit" noWrap>
-              Gather
-            </Typography>
-          </Toolbar>
-        </AppBar>
+        <Header />
         <main>
           {/* Hero unit */}
           <Box
@@ -92,46 +73,8 @@ export default class Home extends Component {
             </Container>
           </Box>
 
-          {/* Map */}
           <Map />
-
-          {/* Event Cards */}
-          <Container sx={{ py: 5 }} maxWidth="md">
-            <Grid container spacing={4}>
-              {this.state.events.map((event, index) => (
-                <Grid item key={index} xs={12} sm={6} md={4}>
-                  <Card
-                    sx={{
-                      height: "100%",
-                      display: "flex",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <CardMedia
-                      component="img"
-                      sx={{
-                        // 16:9
-                        pt: "56.25%",
-                      }}
-                      image="images/event.png"
-                      alt="event discription"
-                    />
-                    <CardContent sx={{ flexGrow: 1 }}>
-                      <Typography gutterBottom variant="h5" component="h2">
-                        {event.name}
-                      </Typography>
-                      <Typography>{event.description}</Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button size="small" variant="outlined">
-                        View
-                      </Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-              ))}
-            </Grid>
-          </Container>
+          <EventCards events={this.state.events} />
         </main>
 
         {/* Footer */}
