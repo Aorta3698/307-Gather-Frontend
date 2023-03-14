@@ -17,6 +17,7 @@ import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import Map from "./Map";
@@ -131,6 +132,10 @@ export default function Home() {
                   <CardActions>
                     <Button size="small" variant="outlined">
                       View
+                    </Button>
+                    <Box flexGrow={1} />
+                    <Button size="small" variant="outlined">
+                      <FavoriteIcon/>
                     </Button>
                   </CardActions>
                 </Card>
