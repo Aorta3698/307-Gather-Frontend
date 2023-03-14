@@ -16,8 +16,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import Map from "./Map";
 
-import React, {Component} from "react";
-import {getAllEvents} from "./Events";
+import React, { Component } from "react";
+import { getAllEvents } from "./Events";
 
 function Copyright() {
   return (
@@ -39,16 +39,16 @@ const theme = createTheme({
 });
 
 export default class Home extends Component {
-  state = {events: []};
+  state = { events: [] };
 
   componentDidMount() {
-    getAllEvents().then(data => {
+    getAllEvents().then((data) => {
       const events = data;
-      this.setState({events});
-    })
+      this.setState({ events });
+    });
   }
 
-  render(){
+  render() {
     return (
       <ThemeProvider theme={theme}>
         <CssBaseline />
@@ -148,4 +148,5 @@ export default class Home extends Component {
         </Box>
       </ThemeProvider>
     );
-  }}
+  }
+}
