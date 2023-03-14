@@ -5,9 +5,17 @@ import TextField from "@mui/material/TextField";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Select from "@mui/material/Select";
 
 export default function AddressForm(props) {
+  const categories = [
+    "Academics",
+    "Sale",
+    "Sporting",
+    "Performing Arts",
+    "Social Gathering",
+  ];
+
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -67,11 +75,11 @@ export default function AddressForm(props) {
               defaultValue=""
               onChange={props.handleChange}
             >
-              <MenuItem value={"Academics"}>Academics</MenuItem>
-              <MenuItem value={"Sale"}>Sale</MenuItem>
-              <MenuItem value={"Sporting"}>Sporting</MenuItem>
-              <MenuItem value={"Performing Arts"}>Performing Arts</MenuItem>
-              <MenuItem value={"Social Gathering"}>Social Gathering</MenuItem>
+              <MenuItem value={categories[0]}>{categories[0]}</MenuItem>
+              <MenuItem value={categories[1]}>{categories[1]}</MenuItem>
+              <MenuItem value={categories[2]}>{categories[2]}</MenuItem>
+              <MenuItem value={categories[3]}>{categories[3]}</MenuItem>
+              <MenuItem value={categories[4]}>{categories[4]}</MenuItem>
             </Select>
           </FormControl>
         </Grid>
