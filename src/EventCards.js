@@ -6,6 +6,13 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import VerifiedIcon from "@mui/icons-material/Verified";
+
+function isVerified(event) {
+  if (event.verified) {
+    return <VerifiedIcon />;
+  }
+}
 
 export default function EventCards(props) {
   return (
@@ -31,7 +38,7 @@ export default function EventCards(props) {
               />
               <CardContent sx={{ flexGrow: 1 }}>
                 <Typography gutterBottom variant="h5" component="h2">
-                  {event.name}
+                  {event.name} {isVerified(event)}
                 </Typography>
                 <Typography>{event.description}</Typography>
               </CardContent>
