@@ -21,14 +21,14 @@ import Header from "./Header";
 
 const steps = ["Event Details", "Event Photos", "Review Event"];
 
-function getStepContent(step, func) {
+function getStepContent(step, func, event) {
   switch (step) {
     case 0:
       return <LocationForm handleChange={func} />;
     case 1:
       return <PhotoForm handleChange={func} />;
     case 2:
-      return <Review handleChange={func} />;
+      return <Review event={event} />;
     default:
       throw new Error("Unknown step");
   }
@@ -98,7 +98,7 @@ export default function Checkout() {
             </React.Fragment>
           ) : (
             <React.Fragment>
-              {getStepContent(activeStep, handleChange)}
+              {getStepContent(activeStep, handleChange, event)}
               <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
                 {activeStep !== 0 && (
                   <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
@@ -111,7 +111,7 @@ export default function Checkout() {
                   onClick={handleNext}
                   sx={{ mt: 3, ml: 1 }}
                 >
-                  {activeStep === steps.length - 1 ? "Add the Event" : "Next"}
+                  {activeStep === steps.length - 1 ? "Add Event" : "Next"}
                 </Button>
               </Box>
             </React.Fragment>
