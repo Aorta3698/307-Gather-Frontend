@@ -21,6 +21,7 @@ import Map from "./Map";
 import Copyright from "./Copyright";
 import Header from "./Header";
 import EventCards from "./EventCards";
+import HeroUnit from "./HeroUnit";
 
 const theme = createTheme({
   palette: {
@@ -43,36 +44,7 @@ export default class Home extends Component {
       <ThemeProvider theme={theme}>
         <Header />
         <main>
-          {/* Hero unit */}
-          <Box
-            sx={{
-              bgcolor: "background.paper",
-              pt: 8,
-              pb: 6,
-            }}
-          >
-            <Container maxWidth="sm">
-              <Typography
-                component="h1"
-                variant="h2"
-                align="center"
-                color="text.primary"
-                gutterBottom
-              >
-                Gather
-              </Typography>
-              <Typography
-                variant="h5"
-                align="center"
-                color="text.secondary"
-                paragraph
-              >
-                This is the place where you can find events to attend, host new
-                events, and meet new people.
-              </Typography>
-            </Container>
-          </Box>
-
+          <HeroUnit />
           <Map />
           <EventCards events={this.state.events} />
         </main>
