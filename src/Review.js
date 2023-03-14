@@ -10,22 +10,19 @@ export default function Review(props) {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Event summary
+        Event Summary
       </Typography>
       <List disablePadding>
         <ListItem key={event.name} sx={{ py: 1, px: 0 }}>
           <ListItemText primary={"Name"} secondary={event.name} />
         </ListItem>
 
-        <ListItem key={event.desc} sx={{ py: 1, px: 0 }}>
-          <ListItemText primary={"Description"} secondary={event.desc} />
+        <ListItem key={event.description} sx={{ py: 1, px: 0 }}>
+          <ListItemText primary={"Description"} secondary={event.description} />
         </ListItem>
 
-        <ListItem key={event.building} sx={{ py: 1, px: 0 }}>
-          <ListItemText
-            primary={"Location"}
-            secondary={event.building + " " + event.room}
-          />
+        <ListItem key={event.location} sx={{ py: 1, px: 0 }}>
+          <ListItemText primary={"Location"} secondary={event.location} />
         </ListItem>
         <ListItem key={event.category} sx={{ py: 1, px: 0 }}>
           <ListItemText primary={"Category"} secondary={event.category} />
