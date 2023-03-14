@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { getAllEvents } from "./Events";
 
