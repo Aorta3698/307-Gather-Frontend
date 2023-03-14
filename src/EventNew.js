@@ -57,7 +57,6 @@ export default function Checkout() {
       ...event,
       [input.target.name]: value,
     });
-    console.log(event);
   };
 
   const handleNext = () => {
