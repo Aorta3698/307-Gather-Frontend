@@ -14,22 +14,10 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import Copyright from "./Copyright";
 
-export default function Login() {
+export default function Login(props) {
   const navigate = useNavigate();
-  const [person, setPerson] = useState({
-    email: "",
-    password: "",
-  });
-
-  function handleChange(event) {
-    const { name, value } = event.target;
-    if (name === "password")
-      setPerson({ email: person["email"], password: value });
-    else setPerson({ email: value, password: person["password"] });
-  }
 
   function submitForm() {
-    setPerson({ email: "", password: "" });
     navigate("/home");
   }
 
@@ -57,12 +45,7 @@ export default function Login() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box
-            component="form"
-            onSubmit={handleChange}
-            noValidate
-            sx={{ mt: 1 }}
-          >
+          <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -71,6 +54,7 @@ export default function Login() {
               label="Email Address"
               name="email"
               autoComplete="email"
+              onChange={props.handleChange}
               autoFocus
             />
             <TextField
@@ -78,6 +62,7 @@ export default function Login() {
               required
               fullWidth
               name="password"
+              onChange={props.handleChange}
               label="Password"
               type="password"
               id="password"
