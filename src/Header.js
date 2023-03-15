@@ -26,7 +26,7 @@ export default function Header() {
               Gather
             </Typography>
             <Button color="inherit">My Events</Button>
-            <Button href="/login" color="inherit">
+            <Button href="users/login" color="inherit">
               Login
             </Button>
             <Button href="/favorites" color="inherit">
