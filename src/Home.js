@@ -1,14 +1,9 @@
 import React, { Component } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
-import EditIcon from "@mui/icons-material/Edit";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import NavigationIcon from "@mui/icons-material/Navigation";
 
 import { getAllEvents } from "./Events";
-
 import Map from "./Map";
 import Copyright from "./Copyright";
 import Header from "./Header";

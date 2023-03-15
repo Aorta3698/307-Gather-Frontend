@@ -17,8 +17,8 @@ import Copyright from "./Copyright";
 export default function Signup() {
   const navigate = useNavigate();
   const [person, setPerson] = useState({
-    firstname: "",
-    lastname: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
   });
@@ -27,35 +27,36 @@ export default function Signup() {
     const { name, value } = event.target;
     if (name === "password")
       setPerson({
-        firstname: person["firstname"],
-        lastname: person["lastname"],
+        firstName: person["firstName"],
+        lastName: person["lastName"],
         email: person["email"],
         password: value,
       });
     else if (name === "email")
       setPerson({
-        firstname: person["firstname"],
-        lastname: person["lastname"],
+        firstName: person["firstName"],
+        lastName: person["lastName"],
         email: value,
         password: person["password"],
       });
-    else if (name === "lastname")
+    else if (name === "lastName")
       setPerson({
-        firstname: person["firstname"],
-        lastname: value,
+        firstName: person["firstName"],
+        lastName: value,
         email: person["email"],
         password: person["password"],
       });
     else
       setPerson({
-        firstname: value,
-        lastname: person["lastname"],
+        firstName: value,
+        lastName: person["lastName"],
         email: person["email"],
         password: person["password"],
       });
   }
 
   function submitForm() {
+    props.handleSubmit(person);
     setPerson({ firstname: "", lastname: "", email: "", password: "" });
     navigate("/home");
   }

@@ -13,6 +13,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 function isVerified(event) {
   if (event.verified) {
@@ -61,6 +62,9 @@ export default function EventCards(props) {
               <CardActions>
                 <Button size="small" variant="outlined" onClick={handleOpen}>
                   View
+                </Button>
+                <Button size="small" variant="outlined">
+                  <FavoriteIcon/>
                 </Button>
                 <Dialog
                   open={open}
