@@ -3,6 +3,7 @@ import Typography from "@mui/material/Typography";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
+import Box from "@mui/material/Box";
 
 export default function Review(props) {
   const event = props.event;
@@ -28,6 +29,19 @@ export default function Review(props) {
           <ListItemText primary={"Category"} secondary={event.category} />
         </ListItem>
       </List>
+      {Array.from(event.images).map((image) => (
+        <Box
+          component="img"
+          sx={{
+            height: 233,
+            width: 350,
+            maxHeight: { xs: 233, md: 167 },
+            maxWidth: { xs: 350, md: 250 },
+          }}
+          alt="Image that you just uploaded"
+          src={URL.createObjectURL(image)}
+        />
+      ))}
     </React.Fragment>
   );
 }

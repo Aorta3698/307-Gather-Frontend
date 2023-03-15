@@ -9,7 +9,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-import PhotoForm from "./PhotoForm";
+import ImageUploader from "./ImageUploader";
 import Copyright from "./Copyright";
 import LocationForm from "./LocationForm";
 import Review from "./Review";
@@ -29,7 +29,7 @@ function getStepContent(step, func, event) {
     case 0:
       return <LocationForm handleChange={func} event={event} />;
     case 1:
-      return <PhotoForm handleChange={func} />;
+      return <ImageUploader event={event} />;
     case 2:
       return <Review event={event} />;
     default:
@@ -50,6 +50,9 @@ export default function Checkout() {
     verified: true,
     hostId: "63fc355766c988cd3251b0ee",
     gps: [-122.5, 37.7],
+
+    // backend does not have this
+    images: "",
   });
 
   const handleChange = (input) => {
@@ -58,6 +61,7 @@ export default function Checkout() {
       ...event,
       [input.target.name]: value,
     });
+    console.log(event);
   };
 
   const setDate = () => {
@@ -68,6 +72,7 @@ export default function Checkout() {
   };
 
   const handleNext = () => {
+    console.log(event);
     setDate();
     setActiveStep(activeStep + 1);
     if (activeStep + 1 == steps.length) {
