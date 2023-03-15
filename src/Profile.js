@@ -18,7 +18,7 @@ export default function Profile(props) {
   console.log(props.person);
   return (
     <ThemeProvider theme={theme}>
-      <Header />
+      <Header isLogin={props.person.isLogin} />
       <main>
         {/* Hero unit */}
         <Box

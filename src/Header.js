@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 
-export default function Header() {
+export default function Header(props) {
   return (
     <div>
       <CssBaseline />
@@ -25,9 +25,15 @@ export default function Header() {
             >
               Gather
             </Typography>
-            <Button href="users/login" color="inherit">
-              Login
-            </Button>
+            {props.isLogin ? (
+              <Button href="/" color="inherit">
+                Logout
+              </Button>
+            ) : (
+              <Button href="users/login" color="inherit">
+                Login
+              </Button>
+            )}
             <Button color="inherit">My Events</Button>
             <Button href="/favorites" color="inherit">
               Favorites
