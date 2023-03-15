@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { useState } from "react";
+import React, { useState } from "react";
 import Home from "./Home";
 import Login from "./Login";
 import Signup from "./Signup";
@@ -10,7 +10,7 @@ import ResetPass from "./ResetPass";
 import EventNew from "./EventNew";
 
 export default function App() {
-  const [person, setPerson] = React.useState({
+  const [person, setPerson] = useState({
     verified: false,
     _id: "",
     first_name: "",
