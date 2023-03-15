@@ -44,7 +44,6 @@ export function checkCredentials(props) {
         bio: result.data.bio,
         isLogin: true,
       });
-      console.log(result.data);
       return result.data;
     } else {
       console.log("login failed.");
