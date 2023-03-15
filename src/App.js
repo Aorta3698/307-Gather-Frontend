@@ -32,7 +32,13 @@ export default function App() {
       <Route path="/Profile" element={<Profile person={person} />} />
       <Route
         path="/users/Login"
-        element={<Login setPerson={setPerson} person={person} />}
+        element={
+          <Login
+            setPerson={setPerson}
+            person={person}
+            handleChange={handleChange}
+          />
+        }
       />
       <Route
         path="/users/signup"

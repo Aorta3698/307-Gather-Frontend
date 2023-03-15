@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -18,22 +18,17 @@ import { checkCredentials } from "./Requests";
 export default function Login(props) {
   const navigate = useNavigate();
 
-  const maskPass = (isLogin) => {
-    props.setPerson({
-      ...props.person,
-      password: "",
-      isLogin: isLogin,
-    });
-  };
-
   function submitForm() {
     // TODO - replace it with an alert upon successful or failure
-    const res = checkCredentials(props.person);
+    var res = checkCredentials(props);
     if (res === false) {
       console.log("Login failed.");
-      maskPass(false);
+      props.setPerson({
+        ...props.person,
+        password: "",
+        isLogin: false,
+      });
     } else {
-      maskPass(true);
       navigate("/profile", { props });
     }
   }

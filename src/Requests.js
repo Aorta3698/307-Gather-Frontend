@@ -33,9 +33,18 @@ async function makeLoginPostCall(person) {
   }
 }
 
-export function checkCredentials(person) {
-  makeLoginPostCall(person).then((result) => {
+export function checkCredentials(props) {
+  makeLoginPostCall(props.person).then((result) => {
     if (result && result.status === 200) {
+      props.setPerson({
+        ...props.person,
+        password: "",
+        firstName: result.data.firstName,
+        lastName: result.data.lastName,
+        bio: result.data.bio,
+        isLogin: true,
+      });
+      console.log(result.data);
       return result.data;
     } else {
       console.log("login failed.");
