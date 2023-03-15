@@ -3,7 +3,6 @@ import Home from "./Home";
 import Login from "./Login";
 import Signup from "./Signup";
 import Profile from "./Profile";
-import Forgot from "./Forgot";
 import { checkCredentials } from "./Requests.js";
 import { addAccount } from "./Requests.js";
 import ResetPass from "./ResetPass";
@@ -14,8 +13,14 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/Profile" element={<Profile />} />
-      <Route path="/users/Login" element={<Login handleSubmit={checkCredentials}/>} />
-      <Route path="/users/signup" element={<Signup handleSubmit={addAccount}/>} />
+      <Route
+        path="/users/Login"
+        element={<Login handleSubmit={checkCredentials} />}
+      />
+      <Route
+        path="/users/signup"
+        element={<Signup handleSubmit={addAccount} />}
+      />
       <Route path="/users/reset-pass" element={<ResetPass />} />
       <Route path="/events/new" element={<EventNew />} />
     </Routes>
