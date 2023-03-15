@@ -14,19 +14,27 @@ export default function Header() {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
-            <IconButton href="/home" style={{ backgroundColor: 'transparent' }}>
+            <IconButton href="/home" style={{ backgroundColor: "transparent" }}>
               <GroupsIcon sx={{ mr: 2 }} />
             </IconButton>
-            <Typography 
-              variant="h6" 
-              component="div" 
-              color='inherit'
-              sx={{ flexGrow: 1 }}>
+            <Typography
+              variant="h6"
+              component="div"
+              color="inherit"
+              sx={{ flexGrow: 1 }}
+            >
               Gather
             </Typography>
             <Button color="inherit">My Events</Button>
-            <Button href="/favorites" color="inherit">Favorites</Button>
-            <Button href="/profile" color="inherit">Profile</Button>
+            <Button href="/login" color="inherit">
+              Login
+            </Button>
+            <Button href="/favorites" color="inherit">
+              Favorites
+            </Button>
+            <Button href="/profile" color="inherit">
+              Profile
+            </Button>
           </Toolbar>
         </AppBar>
       </Box>
