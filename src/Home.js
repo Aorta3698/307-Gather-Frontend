@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
+import { useLocation } from "react-router-dom";
 
 import { getAllEvents } from "./Events";
 import Map from "./Map";
@@ -17,13 +18,9 @@ const theme = createTheme({
 });
 
 function NewEventButton() {
-  const newEvent = () => {
-    location.href = "/events/new";
-  };
-
   return (
     <Fab
-      onClick={newEvent}
+      onClick="/events/new"
       color="primary"
       aria-label="add"
       style={{

@@ -13,59 +13,36 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import Copyright from "./Copyright";
+import { addAccount } from "./Requests.js";
 
-export default function Signup() {
+export default function Signup(props) {
   const navigate = useNavigate();
-  const [person, setPerson] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-  });
-
-  function handleChange(event) {
-    const { name, value } = event.target;
-    if (name === "password")
-      setPerson({
-        firstName: person["firstName"],
-        lastName: person["lastName"],
-        email: person["email"],
-        password: value,
-      });
-    else if (name === "email")
-      setPerson({
-        firstName: person["firstName"],
-        lastName: person["lastName"],
-        email: value,
-        password: person["password"],
-      });
-    else if (name === "lastName")
-      setPerson({
-        firstName: person["firstName"],
-        lastName: value,
-        email: person["email"],
-        password: person["password"],
-      });
-    else
-      setPerson({
-        firstName: value,
-        lastName: person["lastName"],
-        email: person["email"],
-        password: person["password"],
-      });
-  }
-
-  function submitForm() {
-    props.handleSubmit(person);
-    setPerson({ firstname: "", lastname: "", email: "", password: "" });
-    navigate("/home");
-  }
 
   const theme = createTheme({
     palette: {
       mode: "dark",
     },
   });
+
+  const maskPass = (isLogin) => {
+    props.setPerson({
+      ...props.person,
+      password: "",
+      isLogin: isLogin,
+    });
+  };
+
+  function submitForm() {
+    // TODO - replace it with an alert upon successful or failure
+    var res = addAccount(props.person);
+    if (res === false) {
+      console.log("WHAT SIGN UP FAILED!");
+      maskPass(false);
+    } else {
+      maskPass(true);
+      navigate("/profile", { props });
+    }
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -85,12 +62,7 @@ export default function Signup() {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box
-            component="form"
-            noValidate
-            onSubmit={handleChange}
-            sx={{ mt: 3 }}
-          >
+          <Box component="form" noValidate sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -100,6 +72,7 @@ export default function Signup() {
                   fullWidth
                   id="firstName"
                   label="First Name"
+                  onChange={props.handleChange}
                   autoFocus
                 />
               </Grid>
@@ -107,6 +80,7 @@ export default function Signup() {
                 <TextField
                   required
                   fullWidth
+                  onChange={props.handleChange}
                   id="lastName"
                   label="Last Name"
                   name="lastName"
@@ -117,6 +91,7 @@ export default function Signup() {
                 <TextField
                   required
                   fullWidth
+                  onChange={props.handleChange}
                   id="email"
                   label="Email Address"
                   name="email"
@@ -127,6 +102,7 @@ export default function Signup() {
                 <TextField
                   required
                   fullWidth
+                  onChange={props.handleChange}
                   name="password"
                   label="Password"
                   type="password"

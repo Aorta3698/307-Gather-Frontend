@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const backend = "https://polygather.azurewebsites.net/";
+// const backend = "https://polygather.azurewebsites.net/";
+const backend = "http://localhost:5000/";
 
 async function makeAccountPostCall(person) {
   try {
@@ -14,7 +15,11 @@ async function makeAccountPostCall(person) {
 
 export function addAccount(person) {
   makeAccountPostCall(person).then((result) => {
-    if (result && result.status === 201) console.log("CreateAccount: Success!");
+    if (result && result.status === 201) {
+      return result.data;
+    } else {
+      return false;
+    }
   });
 }
 
@@ -28,9 +33,22 @@ async function makeLoginPostCall(person) {
   }
 }
 
-export function checkCredentials(person) {
-  makeLoginPostCall(person).then((result) => {
-    if (result && result.status === 200) console.log("Login: Success!");
-    else console.log("Login: Failure.");
+export function checkCredentials(props) {
+  makeLoginPostCall(props.person).then((result) => {
+    if (result && result.status === 200) {
+      props.setPerson({
+        ...props.person,
+        password: "",
+        firstName: result.data.firstName,
+        lastName: result.data.lastName,
+        bio: result.data.bio,
+        isLogin: true,
+      });
+      console.log(result.data);
+      return result.data;
+    } else {
+      console.log("login failed.");
+      return false;
+    }
   });
 }

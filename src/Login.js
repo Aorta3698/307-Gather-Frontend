@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -13,24 +13,24 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import Copyright from "./Copyright";
+import { checkCredentials } from "./Requests";
 
-export default function Login() {
+export default function Login(props) {
   const navigate = useNavigate();
-  const [person, setPerson] = useState({
-    email: "",
-    password: "",
-  });
-
-  function handleChange(event) {
-    const { name, value } = event.target;
-    if (name === "password")
-      setPerson({ email: person["email"], password: value });
-    else setPerson({ email: value, password: person["password"] });
-  }
 
   function submitForm() {
-    setPerson({ email: "", password: "" });
-    navigate("/home");
+    // TODO - replace it with an alert upon successful or failure
+    var res = checkCredentials(props);
+    if (res === false) {
+      console.log("Login failed.");
+      props.setPerson({
+        ...props.person,
+        password: "",
+        isLogin: false,
+      });
+    } else {
+      navigate("/profile", { props });
+    }
   }
 
   const theme = createTheme({
@@ -57,12 +57,7 @@ export default function Login() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box
-            component="form"
-            onSubmit={handleChange}
-            noValidate
-            sx={{ mt: 1 }}
-          >
+          <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -71,6 +66,7 @@ export default function Login() {
               label="Email Address"
               name="email"
               autoComplete="email"
+              onChange={props.handleChange}
               autoFocus
             />
             <TextField
@@ -78,6 +74,7 @@ export default function Login() {
               required
               fullWidth
               name="password"
+              onChange={props.handleChange}
               label="Password"
               type="password"
               id="password"
