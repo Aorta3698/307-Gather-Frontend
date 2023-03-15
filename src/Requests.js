@@ -39,6 +39,7 @@ export function checkCredentials(person) {
       return result.data;
     } else {
       console.log("login failed.");
+      return false;
     }
   });
 }

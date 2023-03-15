@@ -13,6 +13,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import Copyright from "./Copyright";
+import { addAccount } from "./Requests.js";
 
 export default function Signup(props) {
   const navigate = useNavigate();
@@ -23,21 +24,22 @@ export default function Signup(props) {
     },
   });
 
+  const maskPass = (isLogin) => {
+    props.setPerson({
+      ...props.person,
+      password: "",
+      isLogin: isLogin,
+    });
+  };
+
   function submitForm() {
     // TODO - replace it with an alert upon successful or failure
-    var res = props.handleSubmit(props.person);
+    var res = addAccount(props.person);
     if (res === false) {
       console.log("WHAT SIGN UP FAILED!");
-      props.setPerson({
-        ...props.person,
-        password: "",
-      });
+      maskPass(false);
     } else {
-      props.setPerson({
-        ...props.person,
-        password: "",
-        isLogin: true,
-      });
+      maskPass(true);
       navigate("/profile", { props });
     }
   }

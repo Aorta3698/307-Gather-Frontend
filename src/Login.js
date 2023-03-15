@@ -13,12 +13,29 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import Copyright from "./Copyright";
+import { checkCredentials } from "./Requests";
 
 export default function Login(props) {
   const navigate = useNavigate();
 
+  const maskPass = (isLogin) => {
+    props.setPerson({
+      ...props.person,
+      password: "",
+      isLogin: isLogin,
+    });
+  };
+
   function submitForm() {
-    navigate("/profile", { props });
+    // TODO - replace it with an alert upon successful or failure
+    const res = checkCredentials(props.person);
+    if (res === false) {
+      console.log("Login failed.");
+      maskPass(false);
+    } else {
+      maskPass(true);
+      navigate("/profile", { props });
+    }
   }
 
   const theme = createTheme({
