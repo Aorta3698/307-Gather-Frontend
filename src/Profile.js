@@ -15,7 +15,6 @@ const theme = createTheme({
 });
 
 export default function Profile(props) {
-  console.log(props.person);
   return (
     <ThemeProvider theme={theme}>
       <Header isLogin={props.person.isLogin} />
