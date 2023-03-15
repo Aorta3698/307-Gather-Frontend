@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
@@ -14,23 +11,19 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import Copyright from "./Copyright";
 
-export default function Login() {
-  const navigate = useNavigate();
+export default function ResetPass(props) {
   const [person, setPerson] = useState({
     email: "",
-    password: "",
   });
 
   function handleChange(event) {
     const { name, value } = event.target;
-    if (name === "password")
-      setPerson({ email: person["email"], password: value });
-    else setPerson({ email: value, password: person["password"] });
+    if (name === "email") setPerson({ email: value });
   }
 
   function submitForm() {
-    setPerson({ email: "", password: "" });
-    navigate("/home");
+    props.handleSubmit(person);
+    setPerson({ email: "" });
   }
 
   const theme = createTheme({
@@ -55,7 +48,7 @@ export default function Login() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Forgot Password
           </Typography>
           <Box
             component="form"
@@ -73,16 +66,6 @@ export default function Login() {
               autoComplete="email"
               autoFocus
             />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
             <Button
               type="submit"
               fullWidth
@@ -90,20 +73,8 @@ export default function Login() {
               sx={{ mt: 3, mb: 2 }}
               onClick={submitForm}
             >
-              Sign In
+              Submit
             </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="/users/reset-pass" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="/users/signup" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
           </Box>
         </Box>
         <Copyright />
