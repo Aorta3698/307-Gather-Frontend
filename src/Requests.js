@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const backend = "https://polygather.azurewebsites.net/";
-const backend = "http://localhost:5000/";
+const backend = "https://polygather.azurewebsites.net/";
+// const backend = "http://localhost:5000/";
 
 async function makeAccountPostCall(person) {
   try {
