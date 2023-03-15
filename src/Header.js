@@ -27,8 +27,8 @@ export default function Header() {
             </Typography>
             <Button href="users/login" color="inherit">
               Login
-              <Button color="inherit">My Events</Button>
             </Button>
+            <Button color="inherit">My Events</Button>
             <Button href="/favorites" color="inherit">
               Favorites
             </Button>
