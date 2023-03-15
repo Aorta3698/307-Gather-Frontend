@@ -14,7 +14,7 @@ export default function Header() {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
-            <IconButton href="/home" style={{ backgroundColor: "transparent" }}>
+            <IconButton href="/" style={{ backgroundColor: "transparent" }}>
               <GroupsIcon sx={{ mr: 2 }} />
             </IconButton>
             <Typography
