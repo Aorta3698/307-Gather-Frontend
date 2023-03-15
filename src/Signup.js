@@ -23,49 +23,25 @@ export default function Signup() {
     password: "",
   });
 
-  function handleChange(event) {
-    const { name, value } = event.target;
-    if (name === "password")
-      setPerson({
-        firstName: person["firstName"],
-        lastName: person["lastName"],
-        email: person["email"],
-        password: value,
-      });
-    else if (name === "email")
-      setPerson({
-        firstName: person["firstName"],
-        lastName: person["lastName"],
-        email: value,
-        password: person["password"],
-      });
-    else if (name === "lastName")
-      setPerson({
-        firstName: person["firstName"],
-        lastName: value,
-        email: person["email"],
-        password: person["password"],
-      });
-    else
-      setPerson({
-        firstName: value,
-        lastName: person["lastName"],
-        email: person["email"],
-        password: person["password"],
-      });
-  }
-
-  function submitForm() {
-    props.handleSubmit(person);
-    setPerson({ firstname: "", lastname: "", email: "", password: "" });
-    navigate("/home");
-  }
+  const handleChange = (input) => {
+    const value = input.target.value;
+    setEvent({
+      ...person,
+      [input.target.name]: value,
+    });
+  };
 
   const theme = createTheme({
     palette: {
       mode: "dark",
     },
   });
+
+  function submitForm() {
+    props.handleSubmit(person);
+    setPerson({ firstname: "", lastname: "", email: "", password: "" });
+    navigate("/home");
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -85,12 +61,7 @@ export default function Signup() {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box
-            component="form"
-            noValidate
-            onSubmit={handleChange}
-            sx={{ mt: 3 }}
-          >
+          <Box component="form" noValidate sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -100,6 +71,7 @@ export default function Signup() {
                   fullWidth
                   id="firstName"
                   label="First Name"
+                  onChange={handleChange}
                   autoFocus
                 />
               </Grid>
@@ -107,6 +79,7 @@ export default function Signup() {
                 <TextField
                   required
                   fullWidth
+                  onChange={handleChange}
                   id="lastName"
                   label="Last Name"
                   name="lastName"
@@ -117,6 +90,7 @@ export default function Signup() {
                 <TextField
                   required
                   fullWidth
+                  onChange={handleChange}
                   id="email"
                   label="Email Address"
                   name="email"
@@ -127,6 +101,7 @@ export default function Signup() {
                 <TextField
                   required
                   fullWidth
+                  onChange={handleChange}
                   name="password"
                   label="Password"
                   type="password"

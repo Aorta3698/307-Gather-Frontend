@@ -47,7 +47,7 @@ export default function Checkout() {
     category: "",
     date: "",
     // hardcode these for now
-    verified: true,
+    verified: false,
     hostId: "63fc355766c988cd3251b0ee",
     gps: [-122.5, 37.7],
 
