@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const backend = "https://polygather.azurewebsites.net/";
+// const backend = "http://localhost:5000/";
 
 // get all the events and return the data
 // return the response from the backend

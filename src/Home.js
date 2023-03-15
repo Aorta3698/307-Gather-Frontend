@@ -2,6 +2,12 @@
 // import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import React, { Component } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Fab from "@mui/material/Fab";
+import AddIcon from "@mui/icons-material/Add";
+import EditIcon from "@mui/icons-material/Edit";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import NavigationIcon from "@mui/icons-material/Navigation";
 
 import { getAllEvents } from "./Events";
 import Map from "./Map";
@@ -16,6 +22,28 @@ const theme = createTheme({
     mode: "dark",
   },
 });
+
+function NewEventButton() {
+  const newEvent = () => {
+    location.href = "/events/new";
+  };
+
+  return (
+    <Fab
+      onClick={newEvent}
+      color="primary"
+      aria-label="add"
+      style={{
+        position: "fixed",
+        bottom: theme.spacing(4),
+        right: theme.spacing(4),
+        margin: theme.spacing.unit,
+      }}
+    >
+      <AddIcon />
+    </Fab>
+  );
+}
 
 export default class Home extends Component {
   state = { events: [] };
@@ -37,6 +65,7 @@ export default class Home extends Component {
           <EventCards events={this.state.events} />
         </main>
         <Copyright />
+        <NewEventButton />
       </ThemeProvider>
     );
   }
