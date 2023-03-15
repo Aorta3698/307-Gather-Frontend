@@ -14,7 +14,9 @@ async function makeAccountPostCall(person) {
 
 export function addAccount(person) {
   makeAccountPostCall(person).then((result) => {
-    if (result && result.status === 201) console.log("CreateAccount: Success!");
+    if (result && result.status === 201) {
+      return result.data;
+    }
   });
 }
 
@@ -30,7 +32,10 @@ async function makeLoginPostCall(person) {
 
 export function checkCredentials(person) {
   makeLoginPostCall(person).then((result) => {
-    if (result && result.status === 200) console.log("Login: Success!");
-    else console.log("Login: Failure.");
+    if (result && result.status === 200) {
+      return result.data;
+    } else {
+      console.log("login failed.");
+    }
   });
 }

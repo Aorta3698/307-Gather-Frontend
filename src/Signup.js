@@ -14,22 +14,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import Copyright from "./Copyright";
 
-export default function Signup() {
+export default function Signup(props) {
   const navigate = useNavigate();
-  const [person, setPerson] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-  });
-
-  const handleChange = (input) => {
-    const value = input.target.value;
-    setEvent({
-      ...person,
-      [input.target.name]: value,
-    });
-  };
 
   const theme = createTheme({
     palette: {
@@ -39,7 +25,6 @@ export default function Signup() {
 
   function submitForm() {
     props.handleSubmit(person);
-    setPerson({ firstname: "", lastname: "", email: "", password: "" });
     navigate("/home");
   }
 
@@ -71,7 +56,7 @@ export default function Signup() {
                   fullWidth
                   id="firstName"
                   label="First Name"
-                  onChange={handleChange}
+                  onChange={props.handleChange}
                   autoFocus
                 />
               </Grid>
@@ -79,7 +64,7 @@ export default function Signup() {
                 <TextField
                   required
                   fullWidth
-                  onChange={handleChange}
+                  onChange={props.handleChange}
                   id="lastName"
                   label="Last Name"
                   name="lastName"
@@ -90,7 +75,7 @@ export default function Signup() {
                 <TextField
                   required
                   fullWidth
-                  onChange={handleChange}
+                  onChange={props.handleChange}
                   id="email"
                   label="Email Address"
                   name="email"
@@ -101,7 +86,7 @@ export default function Signup() {
                 <TextField
                   required
                   fullWidth
-                  onChange={handleChange}
+                  onChange={props.handleChange}
                   name="password"
                   label="Password"
                   type="password"
