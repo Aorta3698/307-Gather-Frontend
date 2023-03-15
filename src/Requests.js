@@ -16,6 +16,8 @@ export function addAccount(person) {
   makeAccountPostCall(person).then((result) => {
     if (result && result.status === 201) {
       return result.data;
+    } else {
+      return false;
     }
   });
 }

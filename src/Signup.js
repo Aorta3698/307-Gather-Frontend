@@ -24,8 +24,20 @@ export default function Signup(props) {
   });
 
   function submitForm() {
-    props.handleSubmit(person);
-    navigate("/home");
+    var res = props.handleSubmit(person);
+    if (res === false) {
+      console.log("WHAT");
+      props.setPerson({
+        ...props.person,
+        password: "",
+      });
+    } else {
+      props.setPerson({
+        ...props.person,
+        password: "",
+      });
+      navigate("/");
+    }
   }
 
   return (

@@ -18,7 +18,7 @@ export default function Login(props) {
   const navigate = useNavigate();
 
   function submitForm() {
-    navigate("/home");
+    navigate("/");
   }
 
   const theme = createTheme({
