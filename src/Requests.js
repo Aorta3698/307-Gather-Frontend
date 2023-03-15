@@ -5,9 +5,7 @@ const backend = "http://localhost:5000/";
 
 async function makeAccountPostCall(person) {
   try {
-    console.log(person);
     const response = await axios.post(backend + "users", person);
-    console.log(response);
     return response;
   } catch (error) {
     console.log(error);

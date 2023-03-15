@@ -38,7 +38,7 @@ export default function Signup(props) {
         password: "",
         isLogin: true,
       });
-      navigate("/", { props });
+      navigate("/profile", { props });
     }
   }
 

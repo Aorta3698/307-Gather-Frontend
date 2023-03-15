@@ -58,7 +58,9 @@ export default function Profile(props) {
                   color="text.primary"
                   gutterBottom
                 >
-                  {props.person.isLogin ? "a" : "b"}
+                  {props.person.isLogin
+                    ? props.person.firstName + " " + props.person.lastName
+                    : "Guest"}
                 </Typography>
               </Grid>
               <Grid item>

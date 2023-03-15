@@ -13,7 +13,6 @@ export default function App() {
   const [person, setPerson] = useState({
     isLogin: false,
     verified: false,
-    _id: "000000000000",
     firstName: "",
     lastName: "",
     email: "",
