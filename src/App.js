@@ -11,11 +11,13 @@ import EventNew from "./EventNew";
 
 export default function App() {
   const [person, setPerson] = useState({
+    isLogin: false,
     verified: false,
-    _id: "",
-    first_name: "",
-    last_name: "",
+    _id: "000000000000",
+    firstName: "",
+    lastName: "",
     email: "",
+    bio: "",
     password: "",
   });
 
@@ -41,6 +43,7 @@ export default function App() {
           <Signup
             handleSubmit={addAccount}
             person={person}
+            setPerson={setPerson}
             handleChange={handleChange}
           />
         }

@@ -24,9 +24,10 @@ export default function Signup(props) {
   });
 
   function submitForm() {
-    var res = props.handleSubmit(person);
+    // TODO - replace it with an alert upon successful or failure
+    var res = props.handleSubmit(props.person);
     if (res === false) {
-      console.log("WHAT");
+      console.log("WHAT SIGN UP FAILED!");
       props.setPerson({
         ...props.person,
         password: "",
@@ -35,8 +36,9 @@ export default function Signup(props) {
       props.setPerson({
         ...props.person,
         password: "",
+        isLogin: true,
       });
-      navigate("/");
+      navigate("/", { props });
     }
   }
 

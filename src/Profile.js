@@ -1,17 +1,12 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Button from "@mui/material/Button";
-import GroupsIcon from "@mui/icons-material/Groups";
-import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import IconButton from "@mui/material/IconButton";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import Copyright from "./Copyright";
+import Header from "./Header";
 
 const theme = createTheme({
   palette: {
@@ -19,34 +14,11 @@ const theme = createTheme({
   },
 });
 
-export default function Profile() {
+export default function Profile(props) {
+  console.log(props.person);
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton href="/home" style={{ backgroundColor: "transparent" }}>
-              <GroupsIcon sx={{ mr: 2 }} />
-            </IconButton>
-            <Typography
-              variant="h6"
-              component="div"
-              color="inherit"
-              sx={{ flexGrow: 1 }}
-            >
-              Gather
-            </Typography>
-            <Button color="inherit">My Events</Button>
-            <Button href="/favorites" color="inherit">
-              Favorites
-            </Button>
-            <Button href="/profile" color="inherit">
-              Profile
-            </Button>
-          </Toolbar>
-        </AppBar>
-      </Box>
+      <Header />
       <main>
         {/* Hero unit */}
         <Box
@@ -86,7 +58,7 @@ export default function Profile() {
                   color="text.primary"
                   gutterBottom
                 >
-                  My Profile
+                  {props.person.isLogin ? "a" : "b"}
                 </Typography>
               </Grid>
               <Grid item>
