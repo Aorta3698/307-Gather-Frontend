@@ -9,11 +9,11 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-import ImageUploader from "./ImageUploader";
-import Copyright from "./Copyright";
-import LocationForm from "./LocationForm";
-import Review from "./Review";
-import Header from "./Header";
+import { ImageUploader } from "./ImageUploader";
+import { Copyright } from "./Copyright";
+import { LocationForm } from "./LocationForm";
+import { Review } from "./Review";
+import { NavBar } from "./navBar/NavBar";
 import { addEvent } from "./Events";
 
 const steps = ["Event Details", "Event Photos", "Review Event"];
@@ -37,7 +37,7 @@ function getStepContent(step, func, event) {
   }
 }
 
-export const Checkout = () => {
+export const EventNew = () => {
   const [activeStep, setActiveStep] = React.useState(0);
 
   const [event, setEvent] = React.useState({
@@ -123,7 +123,7 @@ export const Checkout = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Header />
+      <NavBar />
 
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper

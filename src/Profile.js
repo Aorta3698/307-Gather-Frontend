@@ -2,8 +2,8 @@ import * as React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useAuth0 } from "@auth0/auth0-react";
 
-import Copyright from "./Copyright";
-import Header from "./Header";
+import { Copyright } from "./Copyright";
+import { NavBar } from "./navBar/NavBar";
 
 const theme = createTheme({
   palette: {
@@ -20,7 +20,7 @@ export const Profile = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Header />
+      <NavBar />
       <div className="content-layout">
         <h1 id="page-title" className="content__title">
           Profile Page

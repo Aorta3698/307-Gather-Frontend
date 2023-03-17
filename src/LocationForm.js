@@ -7,7 +7,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-export const AddressForm = (props) => {
+export const LocationForm = (props) => {
   const categories = [
     "Academics",
     "Sale",

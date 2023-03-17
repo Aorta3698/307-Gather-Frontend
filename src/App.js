@@ -2,9 +2,9 @@ import { Route, Routes } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
 import Home from "./Home";
-import Profile from "./Profile";
-import EventNew from "./EventNew";
-import PageLoader from "./PageLoader";
+import { Profile } from "./Profile";
+import { EventNew } from "./EventNew";
+import { PageLoader } from "./PageLoader";
 import { AuthenticationGuard } from "./authentication-guard";
 
 export default function App() {
