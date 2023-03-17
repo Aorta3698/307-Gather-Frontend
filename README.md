@@ -46,7 +46,8 @@ If the file does not exist, please go to mapbox and get an _access token of your
 REACT_APP_MAPBOX_ACCESS_TOKEN=<YOUR ACCESS TOKEN>
 ```
 
-You will also need the access token from auth0. In particular, these are what you will need
+Gather makes use of Auth0 to provide user login service. Hence the access tokens below are required.
+These can be obtained from auth0 webside.
 
 ```
 REACT_APP_API_SERVER_URL
@@ -54,8 +55,6 @@ REACT_APP_AUTH0_CALLBACK_URL
 REACT_APP_AUTH0_CLIENT_ID
 REACT_APP_AUTH0_DOMAIN
 ```
-
-You can get those by registering an account with auth0.
 
 inside that `.env.local`. Then re-run `npm run start`
 
