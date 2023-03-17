@@ -1,12 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 import React, { useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+
 import Home from "./Home";
 import Login from "./Login";
 import Signup from "./Signup";
 import Profile from "./Profile";
 import ResetPass from "./ResetPass";
 import EventNew from "./EventNew";
-import { useAuth0 } from "@auth0/auth0-react";
+import PageLoader from "./PageLoader";
 
 export default function App() {
   const { isLoading } = useAuth0();

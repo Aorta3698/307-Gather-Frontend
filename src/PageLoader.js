@@ -1,6 +1,6 @@
 import React from "react";
 
-export const PageLoader = () => {
+export default function PageLoader() {
   const loadingImg = "https://cdn.auth0.com/blog/hello-auth0/loader.svg";
 
   return (
@@ -8,4 +8,4 @@ export const PageLoader = () => {
       <img src={loadingImg} alt="Loading..." />
     </div>
   );
-};
+}
