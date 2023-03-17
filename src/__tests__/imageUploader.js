@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import ImageUploader from "../ImageUploader";
+import { ImageUploader } from "../components/ImageUploader";
 
 it("Photo upload form renders without crashing.", () => {
   const div = document.createElement("div");

@@ -1,57 +1,37 @@
 import { Route, Routes } from "react-router-dom";
-import React, { useState } from "react";
-import Home from "./Home";
-import Login from "./Login";
-import Signup from "./Signup";
-import Profile from "./Profile";
-import ResetPass from "./ResetPass";
-import EventNew from "./EventNew";
+import { useAuth0 } from "@auth0/auth0-react";
+
+import Home from "./pages/Home";
+import { Profile } from "./pages/Profile";
+import { EventNew } from "./pages/EventNew";
+import { PageLoader } from "./components/PageLoader";
+import { AuthenticationGuard } from "./auth/authentication-guard";
+import { NotFound } from "./pages/NotFound";
+import { CallBack } from "./pages/CallBack";
 
 export default function App() {
-  const [person, setPerson] = useState({
-    isLogin: false,
-    verified: false,
-    firstName: "",
-    lastName: "",
-    email: "",
-    bio: "",
-    password: "",
-  });
+  const { isLoading } = useAuth0();
 
-  const handleChange = (input) => {
-    const value = input.target.value;
-    setPerson({
-      ...person,
-      [input.target.name]: value,
-    });
-  };
-
+  if (isLoading) {
+    return (
+      <div className="page-layout">
+        <PageLoader />
+      </div>
+    );
+  }
   return (
     <Routes>
-      <Route path="/" element={<Home person={person} />} />
-      <Route path="/Profile" element={<Profile person={person} />} />
+      <Route path="/" element={<Home />} />
       <Route
-        path="/users/Login"
-        element={
-          <Login
-            setPerson={setPerson}
-            person={person}
-            handleChange={handleChange}
-          />
-        }
+        path="/Profile"
+        element={<AuthenticationGuard component={Profile} />}
       />
       <Route
-        path="/users/signup"
-        element={
-          <Signup
-            person={person}
-            setPerson={setPerson}
-            handleChange={handleChange}
-          />
-        }
+        path="/events/new"
+        element={<AuthenticationGuard component={EventNew} />}
       />
-      <Route path="/users/reset-pass" element={<ResetPass person={person} />} />
-      <Route path="/events/new" element={<EventNew person={person} />} />
+      <Route path="/callback" element={<CallBack />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
