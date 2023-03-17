@@ -4,7 +4,6 @@ import GroupsIcon from "@mui/icons-material/Groups";
 import Typography from "@mui/material/Typography";
 import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -44,13 +43,11 @@ export default function Header() {
                 <LogoutButton />
               </>
             )}
-            {isAuthenticated && (
-              <>
-                <Tab path="/events" label="My Events" />
-                <Tab path="/favorites" label="Favorites" />
-                <Tab path="/profile" label="Profile" />
-              </>
-            )}
+            <>
+              <Tab path="/events" label="My Events" />
+              <Tab path="/favorites" label="Favorites" />
+              <Tab path="/profile" label="Profile" />
+            </>
           </Toolbar>
         </AppBar>
       </Box>

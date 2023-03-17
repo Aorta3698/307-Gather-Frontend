@@ -6,7 +6,6 @@ import Home from "./Home";
 import Login from "./Login";
 import Signup from "./Signup";
 import Profile from "./Profile";
-import ResetPass from "./ResetPass";
 import EventNew from "./EventNew";
 import PageLoader from "./PageLoader";
 import { AuthenticationGuard } from "./authentication-guard";
