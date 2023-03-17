@@ -2,7 +2,7 @@ import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
-export default function Copyright() {
+export const Copyright = () => {
   return (
     <Box sx={{ bgcolor: "background.paper", p: 6 }} component="footer">
       <Typography
@@ -23,4 +23,4 @@ export default function Copyright() {
       </Typography>
     </Box>
   );
-}
+};

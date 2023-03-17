@@ -5,7 +5,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Box from "@mui/material/Box";
 
-export default function Review(props) {
+export const Review = (props) => {
   const event = props.event;
 
   return (
@@ -44,4 +44,4 @@ export default function Review(props) {
       ))}
     </React.Fragment>
   );
-}
+};

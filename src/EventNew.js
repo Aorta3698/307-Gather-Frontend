@@ -37,7 +37,7 @@ function getStepContent(step, func, event) {
   }
 }
 
-export default function Checkout() {
+export const Checkout = () => {
   const [activeStep, setActiveStep] = React.useState(0);
 
   const [event, setEvent] = React.useState({
@@ -146,4 +146,4 @@ export default function Checkout() {
       </Container>
     </ThemeProvider>
   );
-}
+};

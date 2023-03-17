@@ -5,7 +5,7 @@ import mapboxgl from "!mapbox-gl";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
-function Map() {
+export const Map = () => {
   const lng_default = -120.66318847361558;
   const lat_default = 35.303280314081285;
   const zoom_default = 14;
@@ -35,6 +35,4 @@ function Map() {
   });
 
   return <div ref={mapContainer} className="map-container" />;
-}
-
-export default Map;
+};

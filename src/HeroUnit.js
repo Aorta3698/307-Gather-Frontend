@@ -2,7 +2,7 @@ import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-export default function HeroUnit() {
+export const HeroUnit = () => {
   return (
     <Box
       sx={{
@@ -33,4 +33,4 @@ export default function HeroUnit() {
       </Container>
     </Box>
   );
-}
+};

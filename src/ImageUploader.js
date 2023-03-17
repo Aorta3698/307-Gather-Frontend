@@ -4,7 +4,7 @@ import IconButton from "@mui/material/IconButton";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import Stack from "@mui/material/Stack";
 
-export default function ImageUploader(props) {
+export const ImageUploader = (props) => {
   const handleChange = (event) => {
     props.event.images = event.target.files;
   };
@@ -25,4 +25,4 @@ export default function ImageUploader(props) {
       </IconButton>
     </Stack>
   );
-}
+};

@@ -7,7 +7,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-export default function AddressForm(props) {
+export const AddressForm = (props) => {
   const categories = [
     "Academics",
     "Sale",
@@ -79,4 +79,4 @@ export default function AddressForm(props) {
       </Grid>
     </React.Fragment>
   );
-}
+};

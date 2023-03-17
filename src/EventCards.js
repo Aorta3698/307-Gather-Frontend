@@ -21,7 +21,7 @@ function isVerified(event) {
   }
 }
 
-export default function EventCards(props) {
+export const EventCards = (props) => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -95,4 +95,4 @@ export default function EventCards(props) {
       </Grid>
     </Container>
   );
-}
+};

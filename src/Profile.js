@@ -11,7 +11,7 @@ const theme = createTheme({
   },
 });
 
-export default function Profile() {
+export const Profile = () => {
   const { user } = useAuth0();
 
   if (!user) {
@@ -47,4 +47,4 @@ export default function Profile() {
       <Copyright />
     </ThemeProvider>
   );
-}
+};
