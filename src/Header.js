@@ -11,8 +11,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 import LoginButton from "./LoginButton";
 import SignupButton from "./SignupButton";
 import LogoutButton from "./LogoutButton";
+import Tab from "./Tab";
 
-export default function Header(props) {
+export default function Header() {
   const { isAuthenticated } = useAuth0();
 
   return (
@@ -43,13 +44,13 @@ export default function Header(props) {
                 <LogoutButton />
               </>
             )}
-            <Button color="inherit">My Events</Button>
-            <Button href="/favorites" color="inherit">
-              Favorites
-            </Button>
-            <Button href="/profile" color="inherit">
-              Profile
-            </Button>
+            {isAuthenticated && (
+              <>
+                <Tab path="/events" label="My Events" />
+                <Tab path="/favorites" label="Favorites" />
+                <Tab path="/profile" label="Profile" />
+              </>
+            )}
           </Toolbar>
         </AppBar>
       </Box>

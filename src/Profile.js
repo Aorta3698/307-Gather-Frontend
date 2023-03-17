@@ -14,10 +14,10 @@ const theme = createTheme({
   },
 });
 
-export default function Profile(props) {
+export default function Profile() {
   return (
     <ThemeProvider theme={theme}>
-      <Header isLogin={props.person.isLogin} />
+      <Header />
       <main>
         {/* Hero unit */}
         <Box
@@ -57,9 +57,7 @@ export default function Profile(props) {
                   color="text.primary"
                   gutterBottom
                 >
-                  {props.person.isLogin
-                    ? props.person.firstName + " " + props.person.lastName
-                    : "Guest"}
+                  Guest
                 </Typography>
               </Grid>
               <Grid item>
