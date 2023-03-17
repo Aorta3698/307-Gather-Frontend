@@ -5,7 +5,7 @@ import Home from "./Home";
 import { Profile } from "./Profile";
 import { EventNew } from "./EventNew";
 import { PageLoader } from "./PageLoader";
-import { AuthenticationGuard } from "./authentication-guard";
+import { AuthenticationGuard } from "./auth/authentication-guard";
 
 export default function App() {
   const { isLoading } = useAuth0();

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import { Auth0ProviderWithNavigate } from "./auth0-provider-with-navigate";
+import { Auth0ProviderWithNavigate } from "./auth/auth0-provider-with-navigate";
 import App from "./App";
 import "./styles/styles.css";
 
