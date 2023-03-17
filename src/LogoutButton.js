@@ -1,6 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
-import Button from "@mui/material/Button";
 
 export default function LogoutButton() {
   const { logout } = useAuth0();
@@ -14,8 +13,8 @@ export default function LogoutButton() {
   };
 
   return (
-    <Button className="button__logout" onClick={handleLogout}>
+    <button className="button__logout" onClick={handleLogout}>
       Log Out
-    </Button>
+    </button>
   );
 }
