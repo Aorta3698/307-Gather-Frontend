@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import Copyright from "./Copyright";
 import Header from "./Header";
@@ -15,6 +16,12 @@ const theme = createTheme({
 });
 
 export default function Profile() {
+  const { user } = useAuth0();
+
+  if (!user) {
+    return null;
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <Header />
@@ -45,8 +52,8 @@ export default function Profile() {
                     maxHeight: { xs: 350, md: 250 },
                     maxWidth: { xs: 350, md: 250 },
                   }}
-                  alt="User image."
-                  src="images/user-image.png"
+                  alt="User image"
+                  src={user.picture}
                 />
               </Grid>
               <Grid item>
@@ -57,7 +64,7 @@ export default function Profile() {
                   color="text.primary"
                   gutterBottom
                 >
-                  Guest
+                  {user.name}
                 </Typography>
               </Grid>
               <Grid item>
