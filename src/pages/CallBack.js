@@ -8,7 +8,7 @@ const theme = createTheme({
   },
 });
 
-export const CallbackPage = () => {
+export const CallBack = () => {
   return (
     <ThemeProvider theme={theme}>
       <div className="page-layout">

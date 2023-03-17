@@ -7,6 +7,7 @@ import { EventNew } from "./pages/EventNew";
 import { PageLoader } from "./components/PageLoader";
 import { AuthenticationGuard } from "./auth/authentication-guard";
 import { NotFound } from "./pages/NotFound";
+import { CallBack } from "./pages/CallBack";
 
 export default function App() {
   const { isLoading } = useAuth0();
@@ -29,6 +30,7 @@ export default function App() {
         path="/events/new"
         element={<AuthenticationGuard component={EventNew} />}
       />
+      <Route path="/callback" element={<CallBack />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
