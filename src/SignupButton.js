@@ -1,6 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
-import Button from "@mui/material/Button";
 
 export default function SignupButton() {
   const { loginWithRedirect } = useAuth0();
@@ -17,8 +16,8 @@ export default function SignupButton() {
   };
 
   return (
-    <Button className="button__sign-up" onClick={handleSignUp}>
+    <button className="button__sign-up" onClick={handleSignUp}>
       Sign Up
-    </Button>
+    </button>
   );
 }
