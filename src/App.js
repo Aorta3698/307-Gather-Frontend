@@ -1,10 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
 import Home from "./Home";
-import Login from "./Login";
-import Signup from "./Signup";
 import Profile from "./Profile";
 import EventNew from "./EventNew";
 import PageLoader from "./PageLoader";
@@ -27,8 +24,6 @@ export default function App() {
         path="/Profile"
         element={<AuthenticationGuard component={Profile} />}
       />
-      <Route path="/users/Login" element={<Login />} />
-      <Route path="/users/signup" element={<Signup />} />
       <Route
         path="/events/new"
         element={<AuthenticationGuard component={EventNew} />}
