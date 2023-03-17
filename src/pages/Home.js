@@ -3,12 +3,12 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 
-import { getAllEvents } from "./Events";
-import { NavBar } from "./navBar/NavBar";
-import { Map } from "./Map";
-import { Copyright } from "./Copyright";
-import { EventCards } from "./EventCards";
-import { HeroUnit } from "./HeroUnit";
+import { getAllEvents } from "../requests/Events";
+import { NavBar } from "../navBar/NavBar";
+import { Map } from "../components/Map";
+import { Copyright } from "../components/Copyright";
+import { EventCards } from "../components/EventCards";
+import { HeroUnit } from "../components/HeroUnit";
 
 const theme = createTheme({
   palette: {

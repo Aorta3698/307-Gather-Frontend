@@ -9,12 +9,12 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-import { ImageUploader } from "./ImageUploader";
-import { Copyright } from "./Copyright";
-import { LocationForm } from "./LocationForm";
-import { Review } from "./Review";
-import { NavBar } from "./navBar/NavBar";
-import { addEvent } from "./Events";
+import { ImageUploader } from "../components/ImageUploader";
+import { Copyright } from "../components/Copyright";
+import { LocationForm } from "../components/LocationForm";
+import { Review } from "../components/Review";
+import { NavBar } from "../navBar/NavBar";
+import { addEvent } from "../requests/Events";
 
 const steps = ["Event Details", "Event Photos", "Review Event"];
 

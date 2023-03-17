@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
-import Home from "./Home";
-import { Profile } from "./Profile";
-import { EventNew } from "./EventNew";
-import { PageLoader } from "./PageLoader";
+import Home from "./pages/Home";
+import { Profile } from "./pages/Profile";
+import { EventNew } from "./pages/EventNew";
+import { PageLoader } from "./components/PageLoader";
 import { AuthenticationGuard } from "./auth/authentication-guard";
 
 export default function App() {

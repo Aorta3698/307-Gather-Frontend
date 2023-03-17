@@ -2,8 +2,8 @@ import * as React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useAuth0 } from "@auth0/auth0-react";
 
-import { Copyright } from "./Copyright";
-import { PageLayout } from "./PageLayout";
+import { Copyright } from "../components/Copyright";
+import { PageLayout } from "../components/PageLayout";
 
 const theme = createTheme({
   palette: {
