@@ -1,6 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
-import { NavBarTab } from "./nav-bar-tab";
+import { NavBarTab } from "./NavBarTab";
 
 export const NavBarTabs = () => {
   const { isAuthenticated } = useAuth0();

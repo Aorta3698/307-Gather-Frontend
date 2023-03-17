@@ -4,9 +4,9 @@ import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 
 import { getAllEvents } from "./Events";
+import { NavBar } from "./navBar/NavBar";
 import Map from "./Map";
 import Copyright from "./Copyright";
-import Header from "./Header";
 import EventCards from "./EventCards";
 import HeroUnit from "./HeroUnit";
 
@@ -47,7 +47,7 @@ export default class Home extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <Header />
+        <NavBar />
         <main>
           <HeroUnit />
           <Map />
