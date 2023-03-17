@@ -1,8 +1,4 @@
 import * as React from "react";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -25,63 +21,29 @@ export default function Profile() {
   return (
     <ThemeProvider theme={theme}>
       <Header />
-      <main>
-        {/* Hero unit */}
-        <Box
-          sx={{
-            bgcolor: "background.paper",
-            pt: 8,
-            pb: 6,
-          }}
-        >
-          <Container maxWidth="sm">
-            <Grid
-              container
-              spacing={0}
-              direction="column"
-              alignItems="center"
-              justifyContent="center"
-              style={{ minHeight: "10vh" }}
-            >
-              <Grid item>
-                <Box
-                  component="img"
-                  sx={{
-                    height: 350,
-                    width: 350,
-                    maxHeight: { xs: 350, md: 250 },
-                    maxWidth: { xs: 350, md: 250 },
-                  }}
-                  alt="User image"
-                  src={user.picture}
-                />
-              </Grid>
-              <Grid item>
-                <Typography
-                  component="h1"
-                  variant="h2"
-                  align="center"
-                  color="text.primary"
-                  gutterBottom
-                >
-                  {user.name}
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Typography
-                  variant="h5"
-                  align="center"
-                  color="text.secondary"
-                  paragraph
-                >
-                  This will be my bio!
-                </Typography>
-              </Grid>
-            </Grid>
-          </Container>
-        </Box>
-      </main>
-
+      <div className="content-layout">
+        <h1 id="page-title" className="content__title">
+          Profile Page
+        </h1>
+        <div className="content__body">
+          <p id="page-description">
+            <span>This is my bio!</span>
+          </p>
+          <div className="profile-grid">
+            <div className="profile__header">
+              <img
+                src={user.picture}
+                alt="Profile"
+                className="profile__avatar"
+              />
+              <div className="profile__headline">
+                <h2 className="profile__title">{user.name}</h2>
+                <span className="profile__description">{user.email}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <Copyright />
     </ThemeProvider>
   );
