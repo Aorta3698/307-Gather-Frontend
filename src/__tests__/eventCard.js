@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import EventCards from "../EventCards";
+import { EventCards } from "../EventCards";
 
 it("Event Cards renders without crashing.", () => {
   const div = document.createElement("div");
