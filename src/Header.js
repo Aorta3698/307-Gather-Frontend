@@ -6,8 +6,15 @@ import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
+import { useAuth0 } from "@auth0/auth0-react";
+
+import LoginButton from "./LoginButton";
+import SignupButton from "./SignupButton";
+import LogoutButton from "./LogoutButton";
 
 export default function Header(props) {
+  const { isAuthenticated } = useAuth0();
+
   return (
     <div>
       <CssBaseline />
@@ -25,14 +32,16 @@ export default function Header(props) {
             >
               Gather
             </Typography>
-            {props.isLogin ? (
-              <Button href="/" color="inherit">
-                Logout
-              </Button>
-            ) : (
-              <Button href="users/login" color="inherit">
-                Login
-              </Button>
+            {!isAuthenticated && (
+              <>
+                <SignupButton />
+                <LoginButton />
+              </>
+            )}
+            {isAuthenticated && (
+              <>
+                <LogoutButton />
+              </>
             )}
             <Button color="inherit">My Events</Button>
             <Button href="/favorites" color="inherit">

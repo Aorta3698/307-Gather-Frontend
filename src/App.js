@@ -6,52 +6,26 @@ import Signup from "./Signup";
 import Profile from "./Profile";
 import ResetPass from "./ResetPass";
 import EventNew from "./EventNew";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function App() {
-  const [person, setPerson] = useState({
-    isLogin: false,
-    verified: false,
-    firstName: "",
-    lastName: "",
-    email: "",
-    bio: "",
-    password: "",
-  });
+  const { isLoading } = useAuth0();
 
-  const handleChange = (input) => {
-    const value = input.target.value;
-    setPerson({
-      ...person,
-      [input.target.name]: value,
-    });
-  };
-
+  if (isLoading) {
+    return (
+      <div className="page-layout">
+        <PageLoader />
+      </div>
+    );
+  }
   return (
     <Routes>
-      <Route path="/" element={<Home person={person} />} />
-      <Route path="/Profile" element={<Profile person={person} />} />
-      <Route
-        path="/users/Login"
-        element={
-          <Login
-            setPerson={setPerson}
-            person={person}
-            handleChange={handleChange}
-          />
-        }
-      />
-      <Route
-        path="/users/signup"
-        element={
-          <Signup
-            person={person}
-            setPerson={setPerson}
-            handleChange={handleChange}
-          />
-        }
-      />
-      <Route path="/users/reset-pass" element={<ResetPass person={person} />} />
-      <Route path="/events/new" element={<EventNew person={person} />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/Profile" element={<Profile />} />
+      <Route path="/users/Login" element={<Login />} />
+      <Route path="/users/signup" element={<Signup />} />
+      <Route path="/users/reset-pass" element={<ResetPass />} />
+      <Route path="/events/new" element={<EventNew />} />
     </Routes>
   );
 }
